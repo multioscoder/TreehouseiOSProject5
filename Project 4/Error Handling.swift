@@ -10,6 +10,7 @@ enum PassError: Error {
   
     case invalidData(description: String)
     case requiredData(description: String)
+    case invalidEntry(description: String)
 
 }
 

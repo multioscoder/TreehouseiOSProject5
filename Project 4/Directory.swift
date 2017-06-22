@@ -22,6 +22,7 @@ enum EntrantType {
     case contract
     case manager
     case vendor
+    case season
 }
 
 
@@ -38,29 +39,50 @@ struct Privileges {
     var discount: Bool
     var discountPercentForFood: Int?
     var discountPercentForMerchandise: Int?
+    var projectNumber: Int?
+    var company: String?
 }
+
+
 
 var directory: [Privileges] = [
 
-    Privileges(entrant: EntrantType.adult, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil),
+    Privileges(entrant: EntrantType.adult, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: nil, company: nil),
     
-    Privileges(entrant: EntrantType.child, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil),
+    Privileges(entrant: EntrantType.child, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: nil, company: nil),
 
-    Privileges(entrant: EntrantType.senior, canAccessAllRides: true, isAbleToSkipLines: true, accessibility: ["Amusement"], discount: true, discountPercentForFood: 10, discountPercentForMerchandise: 10),
+    Privileges(entrant: EntrantType.senior, canAccessAllRides: true, isAbleToSkipLines: true, accessibility: ["Amusement"], discount: true, discountPercentForFood: 10, discountPercentForMerchandise: 10, projectNumber: nil, company: nil),
     
-    Privileges(entrant: EntrantType.vip, canAccessAllRides: true, isAbleToSkipLines: true, accessibility: ["Amusement"], discount: true, discountPercentForFood: 10, discountPercentForMerchandise: 20),
+    Privileges(entrant: EntrantType.vip, canAccessAllRides: true, isAbleToSkipLines: true, accessibility: ["Amusement"], discount: true, discountPercentForFood: 10, discountPercentForMerchandise: 20, projectNumber: nil, company: nil),
     
-    Privileges(entrant: EntrantType.food, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen"], discount: true, discountPercentForFood: 15, discountPercentForMerchandise: 25),
+    Privileges(entrant: EntrantType.food, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen"], discount: true, discountPercentForFood: 15, discountPercentForMerchandise: 25, projectNumber: nil, company: nil),
     
-    Privileges(entrant: EntrantType.ride, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Ride Control"], discount: true, discountPercentForFood: 15, discountPercentForMerchandise: 25),
+    Privileges(entrant: EntrantType.ride, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Ride Control"], discount: true, discountPercentForFood: 15, discountPercentForMerchandise: 25, projectNumber: nil, company: nil),
     
-    Privileges(entrant: EntrantType.maintenance, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen", "Maintenance", "Ride Control"], discount: true, discountPercentForFood: 15, discountPercentForMerchandise: 25),
+    Privileges(entrant: EntrantType.maintenance, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen", "Maintenance", "Ride Control"], discount: true, discountPercentForFood: 15, discountPercentForMerchandise: 25, projectNumber: nil, company: nil),
     
-    Privileges(entrant: EntrantType.manager, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen", "Maintenance", "Ride Control", "Office Areas"], discount: true, discountPercentForFood: 25, discountPercentForMerchandise: 25)
+    Privileges(entrant: EntrantType.manager, canAccessAllRides: true, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen", "Maintenance", "Ride Control", "Office Areas"], discount: true, discountPercentForFood: 25, discountPercentForMerchandise: 25, projectNumber: nil, company: nil),
     
+    Privileges(entrant: EntrantType.season, canAccessAllRides: true, isAbleToSkipLines: true, accessibility: ["Amusement"], discount: true, discountPercentForFood: 10, discountPercentForMerchandise: 20, projectNumber: nil, company: nil),
+    
+    Privileges(entrant: .contract, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Amusement", "Ride Control"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: 1001, company: nil),
+    
+    Privileges(entrant: .contract, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Amusement", "Ride Control", "Maintenance"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: 1002, company: nil),
+    
+    Privileges(entrant: .contract, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen", "Maintenance", "Ride Control", "Office Areas"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: 1003, company: nil),
+    
+    Privileges(entrant: .contract, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Office Areas"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: 2001, company: nil),
+    
+    Privileges(entrant: .contract, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Kitchen", "Maintenance"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: 2002, company: nil),
+    
+    Privileges(entrant: .vendor, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Kitchen"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: nil, company: "Acme"),
+    
+    Privileges(entrant: .vendor, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Amusement", "Ride Control", "Kitchen"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: nil, company: "Orkin"),
+    
+    Privileges(entrant: .vendor, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Maintenance", "Office Areas"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: nil, company: "Fedex"),
+    
+    Privileges(entrant: .vendor, canAccessAllRides: false, isAbleToSkipLines: false, accessibility: ["Amusement", "Kitchen", "Maintenance", "Ride Control", "Office Areas"], discount: false, discountPercentForFood: nil, discountPercentForMerchandise: nil, projectNumber: nil, company: "NW Electrical")
 ]
-
-
 
 
 

@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var sub2: UIButton!
     @IBOutlet weak var sub3: UIButton!
     @IBOutlet weak var sub4: UIButton!
+    @IBOutlet weak var seasonPass: UIButton!
 
     @IBOutlet weak var dateOfBirth: UITextField!
     @IBOutlet weak var ssn: UITextField!
@@ -28,6 +29,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var zipcode: UITextField!
+    @IBOutlet weak var dateOfVisit: UITextField!
+    @IBOutlet weak var dataOfVisitBar: UILabel!
     
     @IBOutlet weak var generatePassOutlet: UIButton!
     
@@ -92,6 +95,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sub2.isHidden = true
         sub3.isHidden = true
         sub4.isHidden = true
+        seasonPass.isHidden = true
         
         dateOfBirth.backgroundColor = lockedColor
         ssn.backgroundColor = lockedColor
@@ -114,6 +118,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         city.isUserInteractionEnabled = false
         state.isUserInteractionEnabled = false
         zipcode.isUserInteractionEnabled = false
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
         
     }
 
@@ -140,12 +146,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sub2.isHidden = false
         sub3.isHidden = false
         sub4.isHidden = false
+        seasonPass.isHidden = false
         
         sub1.setTitle("Child", for: .normal)
         sub2.setTitle("Adult", for: .normal)
         sub3.setTitle("Senior", for: .normal)
         sub4.setTitle("VIP", for: .normal)
         
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
         
     
     }
@@ -156,11 +164,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sub2.isHidden = false
         sub3.isHidden = false
         sub4.isHidden = false
+        seasonPass.isHidden = true
         
         sub1.setTitle("Food", for: .normal)
         sub2.setTitle("Ride", for: .normal)
         sub3.setTitle("Maintenance", for: .normal)
         sub4.setTitle("Contract", for: .normal)
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
     
     }
 
@@ -173,9 +184,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sub2.isHidden = true
         sub3.isHidden = true
         sub4.isHidden = true
+        seasonPass.isHidden = true
         
-        dateOfBirth.isUserInteractionEnabled = false
-        ssn.isUserInteractionEnabled = false
+        dateOfBirth.isUserInteractionEnabled = true
+        ssn.isUserInteractionEnabled = true
         projectNumber.isUserInteractionEnabled = false
         firstName.isUserInteractionEnabled = true
         lastName.isUserInteractionEnabled = true
@@ -185,8 +197,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         state.isUserInteractionEnabled = true
         zipcode.isUserInteractionEnabled = true
         
-        dateOfBirth.backgroundColor = lockedColor
-        ssn.backgroundColor = lockedColor
+        dateOfBirth.backgroundColor = unlockedColor
+        ssn.backgroundColor = unlockedColor
         projectNumber.backgroundColor = lockedColor
         firstName.backgroundColor = unlockedColor
         lastName.backgroundColor = unlockedColor
@@ -195,19 +207,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         city.backgroundColor = unlockedColor
         state.backgroundColor = unlockedColor
         zipcode.backgroundColor = unlockedColor
-    
-        // lastButtonClicked.text = "manager"
+
         
         recentButton = EntrantType.manager
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
     
     }
     
     @IBAction func vendorAction(_ sender: UIButton) {
     
+        dateOfVisit.isHidden = false; dataOfVisitBar.isHidden = false
+        dateOfVisit.backgroundColor = unlockedColor
+        
         sub1.isHidden = true
         sub2.isHidden = true
         sub3.isHidden = true
         sub4.isHidden = true
+        seasonPass.isHidden = true
+
         
         dateOfBirth.isUserInteractionEnabled = true
         ssn.isUserInteractionEnabled = false
@@ -233,9 +251,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         recentButton = EntrantType.vendor
         
+        
+        
     }
     
     @IBAction func sub1Action(_ sender: UIButton) {
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
         
         if sub1.currentTitle == "Child" {
             dateOfBirth.isUserInteractionEnabled = true
@@ -264,8 +286,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if sub1.currentTitle == "Food" {
-            dateOfBirth.isUserInteractionEnabled = false
-            ssn.isUserInteractionEnabled = false
+            dateOfBirth.isUserInteractionEnabled = true
+            ssn.isUserInteractionEnabled = true
             projectNumber.isUserInteractionEnabled = false
             firstName.isUserInteractionEnabled = true
             lastName.isUserInteractionEnabled = true
@@ -275,8 +297,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             state.isUserInteractionEnabled = true
             zipcode.isUserInteractionEnabled = true
             
-            dateOfBirth.backgroundColor = lockedColor
-            ssn.backgroundColor = lockedColor
+            dateOfBirth.backgroundColor = unlockedColor
+            ssn.backgroundColor = unlockedColor
             projectNumber.backgroundColor = lockedColor
             firstName.backgroundColor = unlockedColor
             lastName.backgroundColor = unlockedColor
@@ -293,6 +315,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     @IBAction func sub2Action(_ sender: UIButton) {
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
         
         if sub2.currentTitle == "Adult" {
             dateOfBirth.isUserInteractionEnabled = false
@@ -321,8 +345,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if sub2.currentTitle == "Ride" {
-            dateOfBirth.isUserInteractionEnabled = false
-            ssn.isUserInteractionEnabled = false
+            dateOfBirth.isUserInteractionEnabled = true
+            ssn.isUserInteractionEnabled = true
             projectNumber.isUserInteractionEnabled = false
             firstName.isUserInteractionEnabled = true
             lastName.isUserInteractionEnabled = true
@@ -332,8 +356,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             state.isUserInteractionEnabled = true
             zipcode.isUserInteractionEnabled = true
             
-            dateOfBirth.backgroundColor = lockedColor
-            ssn.backgroundColor = lockedColor
+            dateOfBirth.backgroundColor = unlockedColor
+            ssn.backgroundColor = unlockedColor
             projectNumber.backgroundColor = lockedColor
             firstName.backgroundColor = unlockedColor
             lastName.backgroundColor = unlockedColor
@@ -350,6 +374,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func sub3Action(_ sender: UIButton) {
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
         
         if sub3.currentTitle == "Senior" {
             dateOfBirth.isUserInteractionEnabled = true
@@ -379,8 +405,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if sub3.currentTitle == "Maintenance" {
-            dateOfBirth.isUserInteractionEnabled = false
-            ssn.isUserInteractionEnabled = false
+            dateOfBirth.isUserInteractionEnabled = true
+            ssn.isUserInteractionEnabled = true
             projectNumber.isUserInteractionEnabled = false
             firstName.isUserInteractionEnabled = true
             lastName.isUserInteractionEnabled = true
@@ -390,8 +416,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             state.isUserInteractionEnabled = true
             zipcode.isUserInteractionEnabled = true
             
-            dateOfBirth.backgroundColor = lockedColor
-            ssn.backgroundColor = lockedColor
+            dateOfBirth.backgroundColor = unlockedColor
+            ssn.backgroundColor = unlockedColor
             projectNumber.backgroundColor = lockedColor
             firstName.backgroundColor = unlockedColor
             lastName.backgroundColor = unlockedColor
@@ -407,6 +433,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func sub4Action(_ sender: UIButton) {
     
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
         
         if sub4.currentTitle == "VIP" {
             dateOfBirth.isUserInteractionEnabled = false
@@ -435,9 +462,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if sub4.currentTitle == "Contract" {
-            dateOfBirth.isUserInteractionEnabled = false
-            ssn.isUserInteractionEnabled = false
-            projectNumber.isUserInteractionEnabled = false
+            dateOfBirth.isUserInteractionEnabled = true
+            ssn.isUserInteractionEnabled = true
+            projectNumber.isUserInteractionEnabled = true
             firstName.isUserInteractionEnabled = true
             lastName.isUserInteractionEnabled = true
             company.isUserInteractionEnabled = false
@@ -446,9 +473,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             state.isUserInteractionEnabled = true
             zipcode.isUserInteractionEnabled = true
             
-            dateOfBirth.backgroundColor = lockedColor
-            ssn.backgroundColor = lockedColor
-            projectNumber.backgroundColor = lockedColor
+            dateOfBirth.backgroundColor = unlockedColor
+            ssn.backgroundColor = unlockedColor
+            projectNumber.backgroundColor = unlockedColor
             firstName.backgroundColor = unlockedColor
             lastName.backgroundColor = unlockedColor
             company.backgroundColor = lockedColor
@@ -463,6 +490,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func seasonPassAction(_ sender: UIButton) {
+        
+        dateOfVisit.isHidden = true; dataOfVisitBar.isHidden = true
+        
+        dateOfBirth.isUserInteractionEnabled = true
+        ssn.isUserInteractionEnabled = false
+        projectNumber.isUserInteractionEnabled = false
+        firstName.isUserInteractionEnabled = true
+        lastName.isUserInteractionEnabled = true
+        company.isUserInteractionEnabled = false
+        address.isUserInteractionEnabled = true
+        city.isUserInteractionEnabled = true
+        state.isUserInteractionEnabled = true
+        zipcode.isUserInteractionEnabled = true
+        
+        dateOfBirth.backgroundColor = unlockedColor
+        ssn.backgroundColor = lockedColor
+        projectNumber.backgroundColor = lockedColor
+        firstName.backgroundColor = unlockedColor
+        lastName.backgroundColor = unlockedColor
+        company.backgroundColor = lockedColor
+        address.backgroundColor = unlockedColor
+        city.backgroundColor = unlockedColor
+        state.backgroundColor = unlockedColor
+        zipcode.backgroundColor = unlockedColor
+        
+        recentButton = EntrantType.season
+        
+        
+        
+    }
+    
+    
 
     
    // MARK: - The function below throws errors. Experiemnt with this by deliberatly omitting a required textfield (indicated with a faded green background) and / or putting alphabet into the Zip Code field as well as inputting numbers into the other fields other than the street address field. When clicking the "Generate Pass" Button, a pass won't be generated until no errors are thrown and alerts will keep popping up until the user ensures to handle the fields correctly
@@ -473,21 +533,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
         case .child: if dateOfBirth.text == "" { throw PassError.requiredData(description: "Date of Birth Required") }
             
-        case .senior: if dateOfBirth.text == "" || firstName.text == "" || lastName.text == "" { throw PassError.requiredData(description: "Date of Birth Required") }
+        case .senior: if dateOfBirth.text == "" || firstName.text == "" || lastName.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
             
-        case .food: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+        case .food: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" || dateOfBirth.text == "" || ssn.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
             
-        case .ride: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+        case .ride: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" || dateOfBirth.text == "" || ssn.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
             
-        case .contract: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+        case .contract: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" || dateOfBirth.text == "" || ssn.text == "" || projectNumber.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
             
-        case .maintenance: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+        case .maintenance: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == ""  || dateOfBirth.text == "" || ssn.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
             
-        case .manager: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+        case .manager: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == ""  || dateOfBirth.text == "" || ssn.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+            
+        case .vendor: if firstName.text == "" || lastName.text == "" || dateOfVisit.text == "" || dateOfBirth.text == "" || company.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
+            
+        case .season: if firstName.text == "" || lastName.text == "" || address.text == "" || city.text == "" || zipcode.text == "" || state.text == "" || dateOfBirth.text == "" { throw PassError.requiredData(description: "Please make sure all the information is provided.") }
             
         default: break
             
-            // Vendor will be taken care of in Project 5
+
             
         }
         
@@ -499,28 +563,72 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let decimalRangeForState = state.text?.rangeOfCharacter(from: decimalCharacters)
         let decimalRangeForCity = city.text?.rangeOfCharacter(from: decimalCharacters)
         let decimalRangeForZipCode = zipcode.text?.rangeOfCharacter(from: decimalCharacters)
+        let decimalRangeForSSN = ssn.text?.rangeOfCharacter(from: decimalCharacters)
+        let decimalRangeForCompany = company.text?.rangeOfCharacter(from: decimalCharacters)
 
         let alpha = NSCharacterSet.letters
         let zipcodeText = zipcode.text
         let range = zipcodeText?.rangeOfCharacter(from: alpha)
+        
+        let ssnText = ssn.text
+        let rangeOfSSN = ssnText?.rangeOfCharacter(from: alpha)
+
  
         switch recentButton {
             
-        case .senior: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil  { throw PassError.invalidData(description: "The first and last names cannot contain numbers") }
+        case .senior: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil  { throw PassError.invalidData(description: "The first and last names cannot contain numbers.") }
             
-        case .food: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode and the street address contain numbers and that the zipcode only contains numbers") }
+        case .food: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil || rangeOfSSN != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode, street address, date of birth and the SSN contain numbers and that the zipcode and the SSN only contain numbers.") }
             
-        case .ride: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode and the street address contain numbers and that the zipcode only contains numbers") }
+        case .ride: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil || rangeOfSSN != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode, street address, date of birth and the SSN contain numbers and that the zipcode and the SSN only contain numbers.") }
             
-        case .contract: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode and the street address contain numbers and that the zipcode only contains numbers") }
+        case .contract: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil || rangeOfSSN != nil  { throw PassError.invalidData(description: "Please make sure that only the zipcode, street address, date of birth and the SSN contain numbers and that the zipcode and the SSN only contain numbers.") }
             
-        case .maintenance: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode and the street address contain numbers and that the zipcode only contains numbers") }
+        case .maintenance: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil || rangeOfSSN != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode, street address, date of birth and the SSN contain numbers and that the zipcode and the SSN only contain numbers.") }
             
-        case .manager: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode and the street address contain numbers and that the zipcode only contains numbers") }
+        case .manager: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil || rangeOfSSN != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode, street address, date of birth and the SSN contain numbers and that the zipcode and the SSN only contain numbers.") }
             
+            
+        
         default: break
 
     }
+        
+        switch recentButton {
+            
+        case .contract:
+            
+            switch projectNumber.text! {
+            
+            case "1001": break
+            case "1002": break
+            case "1003": break
+            case "2001": break
+            case "2002": break
+            default: throw PassError.invalidEntry(description: "Not a valid project number.")
+            
+            
+            }
+
+            
+        case .vendor:
+            
+            switch company.text! {
+                
+                case "Acme": break
+                case "Fedex": break
+                case "Orkin": break
+                case "NW Electrical": break
+            default: throw PassError.invalidEntry(description: "Not a valid company. Please check your spelling")
+                
+            }
+
+            
+        default: break
+            
+        }
+        
+        
         
     }
 
@@ -538,6 +646,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         catch PassError.invalidData(let desc2) {
             createAlert(Title: "Invalid Data", Message: desc2)
         }
+        
+        catch PassError.invalidEntry(let desc3) {
+            createAlert(Title: "Invalid Entry", Message: desc3)
+        }
     
     }
     
@@ -554,8 +666,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         var secondController = segue.destination as! PassController
-
-
+    
+    if dateOfVisit.text != "" { secondController.storeDateOfVisit = dateOfVisit.text! }
+    
+    if projectNumber.text != "" {
+        secondController.storeProjectNumber = Int(projectNumber.text!)!
+    }
+    
+    if company.text != "" {  secondController.storeCompany =  company.text!  }
+    
+        if ssn.text != "" {  secondController.storeSSN =  ssn.text!  }
         
        if firstName.text != "" && lastName.text != "" {
       secondController.storeFirstName = firstName.text!
