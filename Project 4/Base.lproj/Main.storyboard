@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project_4" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="iEe-wZ-bc9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rjk-tv-Vxo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -258,13 +258,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l33-hG-ILe">
-                                <rect key="frame" x="123" y="222" width="645" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uP3-j2-1yH">
                                 <rect key="frame" x="306" y="105" width="152" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -288,7 +281,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VuX-Sv-w7A">
-                                <rect key="frame" x="0.0" y="826" width="123" height="21"/>
+                                <rect key="frame" x="-2" y="826" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -298,7 +291,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqq-IX-V5h">
-                                <rect key="frame" x="258" y="897" width="270" height="119"/>
+                                <rect key="frame" x="249" y="897" width="270" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.019886590540409088" green="0.98693722486495972" blue="0.53758573532104492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Generate Pass">
@@ -306,9 +299,16 @@
                                 </state>
                                 <connections>
                                     <action selector="generatePass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fuV-AH-MTl"/>
-                                    <segue destination="rrX-0D-0KE" kind="show" identifier="segue" id="l7J-pU-oJN"/>
+                                    <segue destination="rrX-0D-0KE" kind="modal" identifier="segue" id="l7J-pU-oJN"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l33-hG-ILe">
+                                <rect key="frame" x="123" y="222" width="645" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -335,15 +335,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.0625" y="121.87499999999999"/>
+            <point key="canvasLocation" x="146" y="208"/>
         </scene>
         <!--Pass Controller-->
         <scene sceneID="eVB-2f-M4u">
             <objects>
                 <viewController id="rrX-0D-0KE" customClass="PassController" customModule="Project_4" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="imr-qc-4tN"/>
-                        <viewControllerLayoutGuide type="bottom" id="7aE-tE-nX1"/>
+                        <viewControllerLayoutGuide type="top" id="LjG-X5-c12"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Uh-q3-GGq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dYe-20-X9a">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -462,7 +462,7 @@
                                 </state>
                                 <connections>
                                     <action selector="checkAccessAction:" destination="rrX-0D-0KE" eventType="touchUpInside" id="Efs-HF-opG"/>
-                                    <segue destination="j9f-Ht-728" kind="show" identifier="segue2" id="t6C-g1-AQf"/>
+                                    <segue destination="j9f-Ht-728" kind="modal" identifier="segue2" id="t6C-g1-AQf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Visited Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqQ-RV-F8f">
@@ -522,15 +522,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xos-iz-f5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840.625" y="122.46093749999999"/>
+            <point key="canvasLocation" x="1076" y="209"/>
         </scene>
         <!--Access Controller-->
         <scene sceneID="kSe-Lg-NkP">
             <objects>
                 <viewController id="j9f-Ht-728" customClass="AccessController" customModule="Project_4" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L45-q0-Rk6"/>
-                        <viewControllerLayoutGuide type="bottom" id="ujp-xj-gGQ"/>
+                        <viewControllerLayoutGuide type="top" id="uFX-70-cbm"/>
+                        <viewControllerLayoutGuide type="bottom" id="vbc-C0-MVT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="S16-Mw-Ni3">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -615,7 +615,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Y4X-Xs-bdc"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="Y4X-Xs-bdc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -628,7 +628,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRv-KJ-lmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570.3125" y="122.46093749999999"/>
+            <point key="canvasLocation" x="2010" y="209"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>

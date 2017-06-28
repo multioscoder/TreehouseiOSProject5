@@ -588,7 +588,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
         case .manager: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil || decimalRangeForCity != nil || decimalRangeForState != nil || range != nil || rangeOfSSN != nil { throw PassError.invalidData(description: "Please make sure that only the zipcode, street address, date of birth and the SSN contain numbers and that the zipcode and the SSN only contain numbers.") }
             
-            
+        case .vendor: if decimalRangeForFirstName != nil || decimalRangeForLastName != nil { throw PassError.invalidData(description: "Names cannot contain numbers.") }
         
         default: break
 
